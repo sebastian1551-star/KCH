@@ -35,7 +35,7 @@
         .card { 
             position: relative;
             width: 100%;
-            min-height: 580px;
+            min-height: 600px;
             cursor: pointer;
             transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
@@ -153,6 +153,25 @@
 
         .important-red { color: #000000; font-weight: bold; text-decoration: underline; }
 
+        .waste-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.85em;
+        }
+        .waste-table th, .waste-table td {
+            border: 1px solid #000000;
+            padding: 6px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .waste-table th {
+            background: #000000;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
         .btn-container {
             display: flex;
             justify-content: center;
@@ -180,7 +199,7 @@
 <body>
 
 <div id="card-container">
-    <div class="meta">System Szkoleniowy BDO | Karta <span id="current-idx">1</span> z <span id="total-cards">14</span></div>
+    <div class="meta">System Szkoleniowy BDO | Karta <span id="current-idx">1</span> z <span id="total-cards">16</span></div>
     
     <div class="card" id="card" onclick="flipCard()">
         <div class="card-face front">
@@ -202,6 +221,54 @@
 <script>
     const flashcards = [
         {
+            law: "Podstawa Prawna Systemu Szkoleniowego",
+            art: "Wykaz Aktów Prawnych",
+            title: "ŹRÓDŁA PRAWA I USTAWY",
+            sub: "KOMPLETNY WYKAZ PRZEPISÓW GOSPODARKI ODPADAMI",
+            back: "<b>Wszystkie decyzje na placu budowy opieramy na następujących przepisach:</b>" +
+                  "<ul>" +
+                  "<li>1. <b>Ustawa z dnia 14 grudnia 2012 r. o odpadach</b> – główny akt prawny regulujący obowiązki wytwórców, segregację 6 frakcji, zakazy mieszania oraz zasady prowadzenia ewidencji w systemie BDO.</li>" +
+                  "<li>2. <b>Ustawa z dnia 13 września 1996 r. o utrzymaniu czystości i porządku w gminach</b> – reguluje zasady gospodarowania odpadami komunalnymi (bytowym) na terenie nieruchomości niezamieszkanych (takich jak place budowy).</li>" +
+                  "<li>3. <b>Rozporządzenie Ministra Klimatu z dnia 11 września 2020 r. w sprawie szczegółowych wymagań dla magazynowania odpadów</b> – definiuje dokładne wymiary oznakowania, wielkość czcionek (min. 20 mm) oraz parametry techniczne zabezpieczania stref odpadowych.</li>" +
+                  "<li>4. <b>Rozporządzenie Ministra Klimatu z dnia 2 stycznia 2020 r. w sprawie katalogu odpadów</b> – źródło podziału na grupy odpadowe (opakowaniowe 15, budowlane 17, bytowe 20) i oficjalnych sześciocyfrowych kodów.</li>" +
+                  "<li>5. <b>Rozporządzenie Ministra Infrastruktury z dnia 12 kwietnia 2002 r. w sprawie warunków technicznych, jakim powinny odpowiadać budynki i ich usytuowanie</b> – określa rygorystyczne minimalne odległości miejsc gromadzenia odpadów od okien (10 m) oraz od granicy działki (3 m).</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Jako kierownik lub logistyk budowy musisz pamiętać, że przepisy te zazębiają się. Przykładowo: Ustawa o odpadach nakazuje Ci segregację, ale to Warunki Techniczne dyktują, w którym miejscu fizycznie możesz postawić kontener, a Rozporządzenie ws. magazynowania narzuca sposób jego oznakowania.</div>"
+        },
+        {
+            law: "Rozporządzenie Ministra Klimatu w sprawie katalogu odpadów",
+            art: "Zestawienie Zbiorcze",
+            title: "ZBIORCZY WYKAZ KODÓW DLA BUDOWY",
+            sub: "NAJWAŻNIEJSZE KODY W JEDNYM MIEJSCU",
+            back: "<b>Wykaz najczęściej stosowanych kodów BDO na inwestycjach:</b>" +
+                  "<table class='waste-table'>" +
+                  "<tr><th>Kod</th><th>Nazwa i specyfika odpadu</th><th>Przykład budowlany</th></tr>" +
+                  "<tr><td><b>15 01 01</b></td><td>Opakowania z papieru i tektury</td><td>Pudła po falownikach, rozdzielnicach, osprzęcie (branża elektroenergetyczna)</td></tr>" +
+                  "<tr><td><b>15 01 02</b></td><td>Opakowania z tworzyw sztucznych</td><td>Folia stretch zabezpieczająca dostawy paletowe materiałów</td></tr>" +
+                  "<tr><td><b>15 01 10*</b></td><td>Opakowania zawierające pozostałości substancji niebezpiecznych</td><td>Puste puszki i wiadra po farbach rozpuszczalnikowych, lakierach, chemii</td></tr>" +
+                  "<tr><td><b>17 02 03</b></td><td>Tworzywa sztuczne (budowlane)</td><td>Ścinki rur PVC, peszli, koryt kablowych, folii paroizolacyjnych</td></tr>" +
+                  "<tr><td><b>17 04 05</b></td><td>Żelazo i stal</td><td>Ścinki bednarki od uziemień, stalowe korytka tras, profile montażowe</td></tr>" +
+                  "<tr><td><b>17 04 11</b></td><td>Kable, przewody</td><td>Ścinki kabli miedzianych i aluminiowych z instalacji</td></tr>" +
+                  "<tr><td><b>17 01 01</b></td><td>Odpady betonu, gruz betonowy</td><td>Kawałki fundamentów, skutego betonu, nadmiar mieszanki</td></tr>" +
+                  "<tr><td><b>20 03 01</b></td><td>Niesegregowane odpady komunalne</td><td>Odpady bytowe z kontenerów socjalnych (resztki jedzenia)</td></tr>" +
+                  "</table>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Zawsze rozdzielaj metalową bednarkę (17 04 05) od odizolowanych ścinek kabli (17 04 11). Kable posiadają znacznie wyższą wartość skupu złomu surowcowego, a w ewidencji BDO stanowią zupełnie odrębny wpis.</div>"
+        },
+        {
+            law: "Rozporządzenie Ministra Klimatu w sprawie katalogu odpadów",
+            art: "Grupa 15 a Grupa 17",
+            title: "PUŁAPKA KLASYFIKACJI: 15 CZY 17?",
+            sub: "OPAKOWANIA VS. MATERIAŁY KONSTRUKCYJNE",
+            back: "<b>Zasada rozróżniania strumieni surowcowych:</b>" +
+                  "<ul>" +
+                  "<li>1. <b>Grupa 15</b> obejmuje odpady opakowaniowe – czyli wszystko to, co służyło do ochrony, transportu i zabezpieczenia towaru dostarczanego na budowę.</li>" +
+                  "<li>2. <b>Grupa 17</b> obejmuje odpady z budowy, remontów i demontażu – czyli fizyczne komponenty instalacyjne, konstrukcyjne oraz ścinki z montażu.</li>" +
+                  "<li>3. <span class='important-red'>Opakowania z papieru i tektura</span> klasyfikuje się jako <span class='code-box'>15 01 01</span>.</li>" +
+                  "<li>4. <span class='important-red'>Opakowania z tworzyw sztucznych</span> klasyfikuje się jako <span class='code-box'>15 01 02</span>.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Gdy na palecie przyjeżdża zaprawa gipsowa owinięta folią stretch, to zerwana z niej folia jest opakowaniem transportowym – wrzucasz ją do big-baga z kodem <span class='code-box'>15 01 02</span>. Jeśli natomiast rozwijasz z rolki i docinasz folię paroizolacyjną lub fundamentową, jej ścinki są materiałem budowlanym – lądują w osobnym pojemniku z kodem <span class='code-box'>17 02 03</span>. Podobnie puste tekturowe pudełko po armaturze to <span class='code-box'>15 01 01</span>, a nie odpad budowlany.</div>"
+        },
+        {
             law: "Ustawa z dnia 14 grudnia 2012 r. o odpadach",
             art: "Art. 101a ust. 1",
             title: "OBOWIĄZEK SELEKTYWNEGO ZBIERANIA",
@@ -216,14 +283,14 @@
                   "<li>6. <b>Odpady mineralne</b> (beton, cegła, płytki, ceramika, kamienie)</li>" +
                   "</ul>" +
                   "<div class='arrow-box'><b>Cel:</b> Zaniechanie mieszania w celu ułatwienia odzysku lub recyklingu u źródła.</div>" +
-                  "<div class='practice-box'><b>Praktyka na budowie:</b> Rozstaw na zapleczu dedykowane i wyraźnie opisane stojaki z workami typu big-bag na czystą folię opakowaniową oraz osobne kontenery na odpady mineralne (gruz). Przy stanowiskach montażowych (np. płyt g-k) zbieraj ścinki gipsu na bieżąco do mniejszych pojemników, zanim zmieszają się z podłożem.</div>"
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Rozstaw na zapleczu dedykowane i wyraźnie opisane stojaki z workami typu big-bag osobno na czystą folię opakowaniową (15 01 02) oraz osobną strefę na ścinki tworzyw budowlanych (17 02 03). Przy stanowiskach montażowych (np. płyt g-k) zbieraj ścinki gipsu na bieżąco do mniejszych pojemników, zanim zmieszają się z podłożem lub gruzem mineralnym.</div>"
         },
         {
             law: "Ustawa o odpadach",
             art: "Art. 101a ust. 2 - 3",
             title: "PRZEKAZANIE OBOWIĄZKU SEGREGACJI",
             sub: "UMOWA PISEMNA POD RYGOREM NIEWAŻNOŚCI",
-            back: "<b>Zasady delegowania obowiązków:</b>" +
+            back: "<b>Zasada delegowania obowiązków:</b>" +
                   "<ul>" +
                   "<li>1. Wytwórca (lub następny posiadacz) może zlecić wykonanie segregacji podmiotom trzecim.</li>" +
                   "<li>2. Wymagana jest bezwzględna forma <b>UMOWY PISEMNEJ</b> pod rygorem nieważności.</li>" +
@@ -234,39 +301,12 @@
         },
         {
             law: "Ustawa o odpadach",
-            art: "Art. 3 ust. 1 pkt 34",
-            title: "DEFINICJA ZBIERANIA ODPADÓW",
-            sub: "ZAKAZ ZASADNICZEJ ZMIANY CHARAKTERU",
-            back: "<b>Zbieranie odpadów oznacza:</b>" +
-                  "<ul>" +
-                  "<li>1. Gromadzenie odpadów przed ich transportem do miejsc przetwarzania.</li>" +
-                  "<li>2. Obejmuje wstępne sortowanie, o ile nie prowadzi ono do zasadniczej zmiany charakteru i składu odpadów oraz nie powoduje zmiany ich klasyfikacji.</li>" +
-                  "<li>3. Obejmuje także tymczasowe magazynowanie odpadów przez zbierającego.</li>" +
-                  "</ul>" +
-                  "<div class='green-box'><b>Wniosek:</b> Samo zbieranie nie uprawnia firmy do rozsortowywania zmieszanego gruzu/odpadów budowlanych.</div>" +
-                  "<div class='practice-box'><b>Praktyka na budowie:</b> W wyznaczonej strefie zaplecza budowy możesz dokonać szybkiej zselekcji „na gorąco” (np. ręczne wyciągnięcie dużych elementów drewnianych lub arkuszy folii ze skrzyń zanim trafią do transportu), ale nie możesz mechanicznie przesiewać lub rozdrabniać zmieszanego gruzu bez odrębnej decyzji.</div>"
-        },
-        {
-            law: "Ustawa o odpadach",
-            art: "Art. 3 ust. 1 pkt 21",
-            title: "DEFINICJA PRZETWARZANIA ODPADÓW",
-            sub: "PROCESY ODZYSKU LUB UNIESZKODLIWIANIA",
-            back: "<b>Przetwarzanie odpadów to:</b>" +
-                  "<ul>" +
-                  "<li>1. Procesy odzysku lub unieszkodliwiania.</li>" +
-                  "<li>2. Obejmuje również przygotowanie poprzedzające odzysk lub unieszkodliwianie.</li>" +
-                  "<li>3. To w ramach operacji przetwarzania (np. proces R12) następuje faktyczny fizyczny rozdział odpadów na frakcje surowcowe.</li>" +
-                  "</ul>" +
-                  "<div class='practice-box'><b>Praktyka na budowie:</b> Jeżeli chcesz postawić na zapleczu kruszarkę do betonu, aby powtórnie wykorzystać gruz mineralny jako podbudowę pod drogę tymczasową, musisz bezwzględnie uzyskać urzędowe zezwolenie na przetwarzanie odpadów. Wykorzystanie gruzu bez tego dokumentu to poważne naruszenie prawa.</div>"
-        },
-        {
-            law: "Ustawa o odpadach",
             art: "Art. 66 ust. 4 pkt 1 lit. a",
             title: "ZWALNIANIE Z EWIDENCJI (KOMUNALKA)",
             sub: "BRAK OBOWIĄZKU KPO DLA ODPADÓW KOMUNALNYCH",
             back: "<b>Zasada prawna dotycząca ewidencji w BDO:</b>" +
                   "<ul>" +
-                  "<li>1. Zgodnie z art. 66 ust. 4 pkt 1 lit. a, obowiązek prowadzenia ewidencji odpadów nie dotyczy wytwórców odpadów komunalnych.</li>" +
+                  "<li>1. Zgodnie z art. 66 ust. 4 pkt 1 lit. a, <span class='important-red'>obowiązek prowadzenia ewidencji odpadów nie dotyczy wytwórców odpadów komunalnych</span>.</li>" +
                   "<li>2. Budowa generująca odpady od bytowania pracowników (odpady komunalne) działa jako ich wytwórca i jest zwolniona z wystawiania Kart Przekazania Odpadów (KPO) na te odpady.</li>" +
                   "<li>3. Wywóz tych odpadów dokumentuje firma odbierająca za pomocą wewnętrznych dokumentów (np. potwierdzenie odbioru), a nie przez system BDO.</li>" +
                   "</ul>" +
@@ -286,7 +326,7 @@
                   "<li>• <b>Niesegregowane (zmieszane) odpady komunalne</b> <span class='code-box'>20 03 01</span></li>" +
                   "</ul>" +
                   "<div class='arrow-box'><b>Ważne:</b> Odpady te kategorycznie nie obejmują odpadów z samej budowy i rozbiórki (np. gruzu, folii budowlanej)!</div>" +
-                  "<div class='practice-box'><b>Praktyka na budowie:</b> Zorganizuj punkt selektywnej zbiórki odpadów socjalnych blisko kantyny lub szatni. Przypilnuj, aby czysta folia stretch używana do paletowania materiałów budowlanych trafiała do big-bagów z odpadami przemysłowymi (kod 17), a nie do komunalnych worków na tworzywa sztuczne.</div>"
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Zorganizuj punkt selektywnej zbiórki odpadów socjalnych blisko kantyny lub szatni. Instrukcja dla załogi: zabrudzone kartony po obiadach pracowniczych trafiają do odpadów zmieszanych (20 03 01), ale czysty karton zbiorczy po dostawie materiałów to opakowanie o kodzie 15 01 01.</div>"
         },
         {
             law: "Rozporządzenie Ministra Klimatu ws. magazynowania odpadów",
@@ -295,7 +335,7 @@
             sub: "ULGA DLA WYTWÓRCÓW KOMUNALKI",
             back: "<b>Zwolnienie z rygorystycznych zasad magazynowania:</b>" +
                   "<ul>" +
-                  "<li>1. Przepisów rozporządzenia w sprawie szczegółowych wymagań dla magazynowania odpadów nie stosuje się do magazynowania odpadów komunalnych przez ich wytwórcę.</li>" +
+                  "<li>1. Przepisów rozporządzenia w sprawie szczegółowych wymagań dla magazynowania odpadów **nie stosuje się do magazynowania odpadów komunalnych przez ich wytwórcę**.</li>" +
                   "<li>2. Oznacza to, że firma budowlana magazynująca odpady komunalne swoich pracowników na terenie budowy nie musi spełniać surowych wymogów (takich jak oznakowanie kodami o wys. 20 mm, podłoża nieprzepuszczalne itp.).</li>" +
                   "<li>3. Obowiązują ją jednak ogólne zasady dbania o porządek i zabezpieczenia przed rozprzestrzenianiem się odpadów.</li>" +
                   "</ul>" +
@@ -308,9 +348,9 @@
             sub: "ORGANIZACJA ODBIORU ODPADÓW BYTOWYCH",
             back: "<b>Wymogi formalne dla przedsiębiorstwa na budowie:</b>" +
                   "<ul>" +
-                  "<li>1. Firma budowlana jako nieruchomość niezamieszkała, na której powstają odpady komunalne, musi zapewnić ich legalny odbiór.</li>" +
-                  "<li>2. Dwa scenariusze: a) Zawarcie umowy cywilnoprawnej z podmiotem wpisanym do rejestru działalności regulowanej (RDR) w danej gminie; b) Złożenie deklaracji do gminy.</li>" +
-                  "<li>3. Umowa/deklaracja musi określać liczbę pojemników oraz częstotliwość ich opróżniania zgodnie z regulaminem danej gminy.</li>" +
+                  "<li>1. Firma budowlana jako **nieruchomość niezamieszkała**, na której powstają odpady komunalne, musi zapewnić ich legalny odbiór.</li>" +
+                  "<li>2. **Dwa scenariusze:** a) Zawarcie **indywidualnej umowy cywilnoprawnej** z podmiotem wpisanym do rejestru działalności regulowanej (RDR) w danej gminie; b) Złożenie **deklaracji do gminy** (jeśli gmina objęła systemem nieruchomości niezamieszkałe).</li>" +
+                  "<li>3. Umowa/deklaracja musi określać liczbę pojemników oraz częstotliwość ich opróżniania zgodnie z regulaminem utrzymania czystości danej gminy.</li>" +
                   "</ul>" +
                   "<div class='practice-box'><b>Praktyka na budowie:</b> Przed rozpoczęciem inwestycji dowiedz się w urzędzie gminy, czy systemem gospodarki komunalnej objęte są nieruchomości niezamieszkałe (firmy). Jeśli tak - składasz deklarację odpadową do urzędu. Jeśli nie - musisz podpisać komercyjną umowę na podstawienie i wywóz pojemników z podmiotem posiadającym wpis do lokalnego rejestru RDR.</div>"
         },
@@ -322,7 +362,7 @@
             back: "<b>Wymagania dla miejsc gromadzenia odpadów stałych (§ 22 ust. 1):</b>" +
                   "<ul>" +
                   "<li>1. Na działkach budowlanych należy przewidzieć miejsca na pojemniki służące do czasowego gromadzenia odpadów stałych.</li>" +
-                  "<li>2. Forma miejsca: Utwardzony plac pod kontenery, zadaszona osłona (wiata) lub specjalne pomieszczenie w budynku.</li>" +
+                  "<li>2. **Forma miejsca:** Utwardzony plac pod kontenery, zadaszona osłona (wiata) lub specjalne pomieszczenie w budynku.</li>" +
                   "<li>3. Miejsca te muszą umożliwiać bezproblemowy dojazd i dostęp dla pojazdów podmiotów realizujących wywóz.</li>" +
                   "</ul>" +
                   "<div class='practice-box'><b>Praktyka na budowie:</b> Uwzględnij strefę kontenerową już na etapie sporządzania planu BIOZ. Zapewnij utwardzony dojazd (np. z płyt drogowych). Samochód ciężarowy (śmieciarka lub hakowiec) nie może grzęznąć w błocie, a kierowca musi mieć swobodną możliwość manewrowania w celu podniesienia ładunku.</div>"
@@ -334,7 +374,7 @@
             sub: "MINIMALNE DYSTANSE DLA POJEMNIKÓW",
             back: "<b>Odległość miejsc gromadzenia odpadów od okien i drzwi (§ 23 ust. 1):</b>" +
                   "<ul>" +
-                  "<li>1. Odległość placów z kontenerami, osłon lub wiat od okien i drzwi do budynków z pomieszczeniami przeznaczonymi na pobyt ludzi musi wynosić co najmniej 10 metrów.</li>" +
+                  "<li>1. Odległość placów z kontenerami, osłon lub wiat od okien i drzwi do budynków z pomieszczeniami przeznaczonymi na pobyt ludzi musi wynosić **co najmniej 10 metrów**.</li>" +
                   "<li>2. Przepis ten ma na celu ochronę przed uciążliwościami zapachowymi oraz sanitarnymi.</li>" +
                   "</ul>" +
                   "<div class='practice-box'><b>Praktyka na budowie:</b> Pojemniki na odpady komunalne oraz kontenery budowlane ustawiaj z dala od kontenerów biurowych kierownictwa oraz zaplecza socjalnego. Zachowanie wymaganych przepisami 10 metrów od najbliższego okna chroni budowę przed uwagami Nadzoru Budowlanego i dba o higienę pracy.</div>"
@@ -346,8 +386,8 @@
             sub: "DYSTANS OD SĄSIADA",
             back: "<b>Odległość miejsc gromadzenia odpadów od granicy działki (§ 23 ust. 2):</b>" +
                   "<ul>" +
-                  "<li>1. Odległość pojemników i kontenerów od granicy z sąsiednią działką budowlaną musi wynosić co najmniej 3 metry.</li>" +
-                  "<li>2. Wyjątek: Odległość ta nie musi być zachowana, jeśli osłony lub wiaty stykają się z podobnymi urządzeniami na działce sąsiedniej.</li>" +
+                  "<li>1. Odległość pojemników i kontenerów od granicy z sąsiednią działką budowlaną musi wynosić **co najmniej 3 metry**.</li>" +
+                  "<li>2. **Wyjątek:** Odległość ta nie musi być zachowana, jeśli osłony lub wiaty stykają się z podobnymi urządzeniami na działce sąsiedniej, bądź przy zachowaniu wspólnej aranżacji z sąsiadem.</li>" +
                   "</ul>" +
                   "<div class='practice-box'><b>Praktyka na budowie:</b> Unikaj stawiania głównych kontenerów tuż przy płocie sąsiadującej posesji (zwłaszcza zamieszkałej). Zachowanie 3 metrów odległości zapobiegnie potencjalnym konfliktom sąsiedzkim z tytułu hałasu podczas wrzucania odpadów czy pylenia.</div>"
         },
@@ -358,7 +398,7 @@
             sub: "ZAKAZ ZMIANY KLASYFIKACJI ODPADÓW",
             back: "<b>Bezwzględne zakazy w klasyfikacji:</b>" +
                   "<ul>" +
-                  "<li>1. Zakazuje się zmiany klasyfikacji odpadów niebezpiecznych na odpady inne niż niebezpieczne poprzez ich rozcieńczanie lub mieszanie.</li>" +
+                  "<li>1. <span class='important-red'>Zakazuje się zmiany klasyfikacji odpadów niebezpiecznych na odpady inne niż niebezpieczne</span> poprzez ich rozcieńczanie lub mieszanie.</li>" +
                   "<li>2. Niedopuszczalne jest mieszanie ich ze sobą lub z innymi odpadami, substancjami lub materiałami, prowadzące do obniżenia początkowego stężenia substancji niebezpiecznych.</li>" +
                   "<li>3. Naruszenie tego przepisu skutkuje surową administracyjną karą pieniężną (Art. 194 ust. 1 pkt 1).</li>" +
                   "</ul>" +
@@ -371,9 +411,9 @@
             sub: "ZASADA GENERALNA I WYJĄTEK",
             back: "<b>Regulacje dotyczące mieszania substancji niebezpiecznych:</b>" +
                   "<ul>" +
-                  "<li>1. Zasada generalna: Zakazuje się mieszania odpadów niebezpiecznych różnych rodzajów oraz mieszania ich z odpadami innymi niż niebezpieczne.</li>" +
-                  "<li>2. Wyjątek: Mieszanie jest dopuszczalne wyłącznie wtedy, gdy służy poprawie bezpieczeństwa procesów przetwarzania odpadów powstałych po zmieszaniu.</li>" +
-                  "<li>3. W wyniku procesów nie może nastąpić wzrost zagrożenia dla życia, zdrowia ludzi lub środowiska.</li>" +
+                  "<li>1. **Zasada generalna:** Zakazuje się mieszania odpadów niebezpiecznych różnych rodzajów oraz mieszania ich z odpadami innymi niż niebezpieczne.</li>" +
+                  "<li>2. **Wyjątek:** Mieszanie jest dopuszczalne wyłącznie wtedy, gdy służy **poprawie bezpieczeństwa procesów przetwarzania** odpadów powstałych po zmieszaniu.</li>" +
+                  "<li>3. **Warunek dodatkowy:** W wyniku prowadzenia tych procesów nie może nastąpić wzrost zagrożenia dla życia i zdrowia ludzi lub środowiska.</li>" +
                   "</ul>" +
                   "<div class='practice-box'><b>Praktyka na budowie:</b> Wydziel zamknięty, zadaszony 'magazynek chemiczny'. Zużyte puszki po pianach poliuretanowych wrzucaj do jednego, dedykowanego pojemnika, zużyte świetlówki odkładaj osobno, a opakowania po farbach rozpuszczalnikowych segreguj oddzielnie. Nie wolno łączyć wszystkich substancji w jednym wspólnym beczkowaniu.</div>"
         },
@@ -384,11 +424,11 @@
             sub: "WYMIARY I SPECYFIKACJA TECHNICZNA",
             back: "<b>Parametry techniczne znakowania (dla odpadów innych niż komunalne wytwórcy):</b>" +
                   "<ul>" +
-                  "<li>1. Kody odpadów: Nanosi się cyframi koloru czarnego o wysokości minimum 20 mm i szerokości linii minimum 3 mm.</li>" +
-                  "<li>2. Etykieta jednostkowa (odpady niebezpieczne > 5L): Wymiary minimum 150 mm szerokości x 210 mm wysokości.</li>" +
-                  "<li>3. Treść etykiety: Napis „ODPADY NIEBEZPIECZNE”, kod, rodzaj, zawartość, adres i dokładna data rozpoczęcia magazynowania.</li>" +
+                  "<li>1. **Kody odpadów:** Nanosi się cyframi koloru czarnego o wysokości **minimum 20 mm** i szerokości linii **minimum 3 mm**.</li>" +
+                  "<li>2. **Etykieta jednostkowa (odpady niebezpieczne > 5L):** Wymiary minimum **150 mm szerokości x 210 mm wysokości**.</li>" +
+                  "<li>3. **Treść etykiety:** Napis „ODPADY NIEBEZPIECZNE”, kod, rodzaj, zawartość, adres i dokładna data rozpoczęcia magazynowania.</li>" +
                   "</ul>" +
-                  "<div class='practice-box'><b>Praktyka na budowie:</b> Przygotuj lub zamów gotowe sztywne tabliczki informacyjne (np. '17 02 01 Drewno') i zamocuj je trwale na kontenerach, aby napisy były widoczne i czytelne z odległości. Na beczkach lub pojemnikach typu DPPL z zużytą chemią naklej białą kartkę formatu A5 (odpowiednik wymaganego wymiaru etykiety) z pełnymi danymi firmy oraz dokładną datą rozpoczęcia napełniania.</div>"
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Przyготовuj lub zamów gotowe sztywne tabliczki informacyjne (np. '17 02 01 Drewno') i zamocuj je trwale na kontenerach, aby napisy były widoczne i czytelne z odległości. Na beczkach lub pojemnikach typu DPPL z zużytą chemią naklej białą kartkę formatu A5 (odpowiednik wymaganego wymiaru etykiety) z pełnymi danymi firmy oraz dokładną datą rozpoczęcia napełniania.</div>"
         }
     ];
 
