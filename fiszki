@@ -3,18 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ekspert Odpadów: Art. 101a i 3</title>
+    <title>Ekspert Odpadów: Budowa i Odpady Komunalne</title>
     <style>
-        :root {
-            --primary: #2980b9;
-            --secondary: #27ae60;
-            --warning: #f39c12;
-            --danger: #c0392b;
-            --dark: #2c3e50;
-            --light: #ecf0f1;
-            --bg: #1a1a2e;
-        }
-
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             display: flex; 
@@ -22,19 +12,19 @@
             align-items: center; 
             min-height: 100vh; 
             margin: 0; 
-            background: var(--bg); 
-            color: white; 
+            background: #ffffff; 
+            color: #000000; 
         }
 
         #card-container { 
             width: 95%; 
-            max-width: 600px; 
+            max-width: 650px; 
             perspective: 1000px; 
         }
 
         .meta { 
             text-align: center;
-            color: #bdc3c7; 
+            color: #000000; 
             font-size: 0.9em; 
             margin-bottom: 20px; 
             text-transform: uppercase; 
@@ -45,7 +35,7 @@
         .card { 
             position: relative;
             width: 100%;
-            min-height: 480px;
+            min-height: 580px;
             cursor: pointer;
             transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
@@ -63,82 +53,105 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 40px;
+            padding: 35px;
             box-sizing: border-box;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            border: 3px solid rgba(255,255,255,0.1);
+            border-radius: 0px;
+            box-shadow: none;
+            border: 2px solid #000000;
         }
 
         .front {
-            background: linear-gradient(135deg, #ffffff 0%, #f1f2f6 100%);
-            color: var(--dark);
+            background: #ffffff;
+            color: #000000;
             text-align: center;
         }
 
         .back {
             background: #ffffff;
-            color: #333;
+            color: #000000;
             transform: rotateY(180deg);
             overflow-y: auto;
             text-align: left;
+            justify-content: flex-start;
         }
 
         .law-header {
-            font-size: 0.75em;
-            color: #7f8c8d;
+            font-size: 0.9em;
+            color: #000000;
             text-transform: uppercase;
             margin-bottom: 10px;
             letter-spacing: 1px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 2px solid #000000;
             padding-bottom: 5px;
-        }
-
-        .front h2 { 
-            color: var(--primary); 
-            margin: 20px 0; 
-            font-size: 1.7em; 
-            line-height: 1.2;
-        }
-
-        .front .sub-title {
-            font-size: 1.1em;
-            color: var(--danger);
             font-weight: bold;
-        }
-
-        .back b { color: var(--dark); }
-        .back ul { padding-left: 20px; margin: 15px 0; }
-        .back li { margin-bottom: 10px; font-size: 0.95em; line-height: 1.5; }
-        
-        .code-box { 
-            background: #fdf2f2; 
-            padding: 3px 8px; 
-            border-radius: 5px; 
-            font-family: 'Consolas', monospace; 
-            font-weight: bold; 
-            color: #c0392b;
-            border: 1px solid #fadbd8;
-        }
-
-        .arrow-box {
-            background: #ebf5fb;
-            border-left: 5px solid var(--primary);
-            padding: 15px;
-            margin: 15px 0;
-            font-size: 0.9em;
-            border-radius: 4px;
         }
 
         .legal-stamp {
             display: inline-block;
-            background: var(--dark);
-            color: white;
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-bottom: 10px;
+            background: #000000;
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 0px;
+            font-size: 0.85em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            align-self: center;
         }
+
+        .front h2 { 
+            color: #000000; 
+            margin: 20px 0; 
+            font-size: 1.5em; 
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .front .sub-title {
+            font-size: 1.1em;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .back b { color: #000000; }
+        .back ul { padding-left: 20px; margin: 10px 0; list-style-type: square; }
+        .back li { margin-bottom: 8px; font-size: 0.95em; line-height: 1.4; }
+        
+        .code-box { 
+            background: transparent; 
+            padding: 1px 5px; 
+            border-radius: 0px; 
+            font-family: 'Consolas', monospace; 
+            font-weight: bold; 
+            color: #000000;
+            border: 1px dashed #000000;
+        }
+
+        .arrow-box, .green-box {
+            background: transparent;
+            border-left: 4px solid #000000;
+            padding: 8px 12px;
+            margin: 10px 0;
+            font-size: 0.9em;
+            border-radius: 0px;
+        }
+
+        .practice-box {
+            background: transparent;
+            border: 1px solid #000000;
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .practice-box b {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .important-red { color: #000000; font-weight: bold; text-decoration: underline; }
 
         .btn-container {
             display: flex;
@@ -149,37 +162,32 @@
 
         button { 
             padding: 16px 35px; 
-            border: none; 
-            background: var(--primary); 
-            color: white; 
-            border-radius: 15px; 
+            border: 2px solid #000000; 
+            background: #ffffff; 
+            color: #000000; 
+            border-radius: 0px; 
             cursor: pointer; 
             font-size: 1em; 
             font-weight: bold; 
-            transition: all 0.3s;
-            box-shadow: 0 5px 0 #1b4f72;
+            transition: all 0.2s;
         }
 
-        button:hover { background: #21618c; transform: translateY(-2px); }
-        button:active { transform: translateY(2px); box-shadow: 0 2px 0 #1b4f72; }
-        button.secondary { background: #7f8c8d; box-shadow: 0 5px 0 #616a6b; }
-
-        .important-red { color: #c0392b; font-weight: bold; border-bottom: 2px solid #fadbd8; }
-        .green-box { border-left: 5px solid var(--secondary); background: #eafaf1; padding: 10px; margin-top: 10px; }
+        button:hover { background: #000000; color: #ffffff; }
+        button:active { transform: translateY(2px); }
+        button.secondary { background: #ffffff; color: #000000; }
     </style>
 </head>
 <body>
 
 <div id="card-container">
-    <div class="meta">System Szkoleniowy BDO | Karta <span id="current-idx">1</span> z <span id="total-cards">4</span></div>
+    <div class="meta">System Szkoleniowy BDO | Karta <span id="current-idx">1</span> z <span id="total-cards">14</span></div>
     
     <div class="card" id="card" onclick="flipCard()">
         <div class="card-face front">
-            <div class="law-header" id="law-ref">Ustawa o odpadach</div>
-            <div class="legal-stamp" id="art-ref">Art. X</div>
+            <div class="law-header" id="law-ref">USTAWA O ODPADACH</div>
+            <div class="legal-stamp" id="art-ref">ART. X</div>
             <h2 id="card-title">Tytuł</h2>
             <div class="sub-title" id="card-sub">Podtytuł</div>
-            <div style="font-size: 3em; margin-top: 30px;" id="card-icon">⚖️</div>
         </div>
         <div class="card-face back" id="card-back-content">
         </div>
@@ -198,58 +206,189 @@
             art: "Art. 101a ust. 1",
             title: "OBOWIĄZEK SELEKTYWNEGO ZBIERANIA",
             sub: "6 FRAKCJI BUDOWLANYCH",
-            icon: "🏗️",
-            back: "<b>Od 1 stycznia 2025 r. wytwórca musi wydzielić:</b>" +
+            back: "<b>Wytwórca odpadów budowlanych i rozbiórkowych musi wydzielić:</b>" +
                   "<ul>" +
                   "<li>1. <b>Drewno</b> <span class='code-box'>17 02 01</span></li>" +
                   "<li>2. <b>Metale</b> <span class='code-box'>17 04 07</span></li>" +
                   "<li>3. <b>Szkło</b> <span class='code-box'>17 02 02</span></li>" +
                   "<li>4. <b>Tworzywa sztuczne</b> <span class='code-box'>17 02 03</span></li>" +
                   "<li>5. <b>Gips</b> <span class='code-box'>17 08 02</span></li>" +
-                  "<li>6. <b>Odpady mineralne</b> (beton, cegła, ceramika)</li>" +
+                  "<li>6. <b>Odpady mineralne</b> (beton, cegła, płytki, ceramika, kamienie)</li>" +
                   "</ul>" +
-                  "<div class='arrow-box'><b>Cel:</b> Zwiększenie poziomów recyklingu i czystości surowca u źródła.</div>"
+                  "<div class='arrow-box'><b>Cel:</b> Zaniechanie mieszania w celu ułatwienia odzysku lub recyklingu u źródła.</div>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Rozstaw na zapleczu dedykowane i wyraźnie opisane stojaki z workami typu big-bag na czystą folię opakowaniową oraz osobne kontenery na odpady mineralne (gruz). Przy stanowiskach montażowych (np. płyt g-k) zbieraj ścinki gipsu na bieżąco do mniejszych pojemników, zanim zmieszają się z podłożem.</div>"
         },
         {
-            law: "Ustawa o odpadach (Art. 101a ust. 2 oraz Art. 3 ust. 1 pkt 34)",
-            art: "Art. 101a ust. 2",
+            law: "Ustawa o odpadach",
+            art: "Art. 101a ust. 2 - 3",
             title: "PRZEKAZANIE OBOWIĄZKU SEGREGACJI",
-            sub: "KOD 17 09 04 (ZMIESZANE)",
-            icon: "📝",
+            sub: "UMOWA PISEMNA POD RYGOREM NIEWAŻNOŚCI",
             back: "<b>Zasady delegowania obowiązków:</b>" +
                   "<ul>" +
-                  "<li>1. Wytwórca może zlecić segregację <b>innemu podmiotowi</b>.</li>" +
-                  "<li>2. Wymagana jest forma <b>PISEMNA UMOWY</b> pod rygorem nieważności.</li>" +
-                  "<li>3. <span class='important-red'>KLUCZ:</span> Zgodnie z art. 3 ust. 1 pkt 34, zbierający odpady nie może zmieniać ich kodu (sortować).</li>" +
+                  "<li>1. Wytwórca (lub następny posiadacz) może zlecić wykonanie segregacji podmiotom trzecim.</li>" +
+                  "<li>2. Wymagana jest bezwzględna forma <b>UMOWY PISEMNEJ</b> pod rygorem nieważności.</li>" +
+                  "<li>3. Umowa musi precyzyjnie określać dalsze zagospodarowanie wysegregowanych odpadów.</li>" +
+                  "<li>4. Za wykonanie tego obowiązku strony umowy odpowiadają <b>solidarnie</b>.</li>" +
                   "</ul>" +
-                  "<div class='arrow-box'><b>Wniosek:</b> Zlecenie segregacji możliwe tylko podmiotowi prowadzącemu <b>PRZETWARZANIE</b> (Sortownia).</div>"
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Jeśli na placu budowy brakuje przestrzeni na ustawienie aż 6 osobnych pojemników, podpisz umowę pisemną z profesjonalnym operatorem na odbiór frakcji zmieszanej w celu segregacji w ich sortowni. Zwykła faktura VAT lub ustalenia ustne nie stanowią podstawy prawnej przy kontroli Inspekcji Ochrony Środowiska.</div>"
         },
         {
-            law: "Relacja Wytwórca - Zbierający - Przetwarzający",
-            art: "Analiza Ryzyka BDO",
-            title: "PRAWIDŁOWY ŁAŃCUCH ZAGOSPODAROWANIA",
-            sub: "CZY ZBIERAJĄCY MOŻE BYĆ POŚREDNIKIEM?",
-            icon: "⛓️",
-            back: "<b>Mechanizm działania pośredniego:</b>" +
+            law: "Ustawa o odpadach",
+            art: "Art. 3 ust. 1 pkt 34",
+            title: "DEFINICJA ZBIERANIA ODPADÓW",
+            sub: "ZAKAZ ZASADNICZEJ ZMIANY CHARAKTERU",
+            back: "<b>Zbieranie odpadów oznacza:</b>" +
                   "<ul>" +
-                  "<li><b>Krok 1:</b> Wytwórca przekazuje 17 09 04 zbierającemu.</li>" +
-                  "<li><b>Krok 2:</b> Zbierający musi dostarczyć odpady do <b>Instalacji Przetwarzania</b> (proces R12).</li>" +
-                  "<li><b>Zagrożenie:</b> Jeśli zbierający nie przekaże odpadów do sortowni, obowiązek ustawowy wytwórcy <b>NIE ZOSTAŁ spełniony</b>.</li>" +
+                  "<li>1. Gromadzenie odpadów przed ich transportem do miejsc przetwarzania.</li>" +
+                  "<li>2. Obejmuje wstępne sortowanie, o ile nie prowadzi ono do zasadniczej zmiany charakteru i składu odpadów oraz nie powoduje zmiany ich klasyfikacji.</li>" +
+                  "<li>3. Obejmuje także tymczasowe magazynowanie odpadów przez zbierającego.</li>" +
                   "</ul>" +
-                  "<div class='arrow-box'><b>Budowa</b> ➔ <b>Umowa Pisemna</b> ➔ <b>Podmiot Przetwarzający (Sortownia)</b> ➔ <b>Odzysk</b></div>"
+                  "<div class='green-box'><b>Wniosek:</b> Samo zbieranie nie uprawnia firmy do rozsortowywania zmieszanego gruzu/odpadów budowlanych.</div>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> W wyznaczonej strefie zaplecza budowy możesz dokonać szybkiej zselekcji „na gorąco” (np. ręczne wyciągnięcie dużych elementów drewnianych lub arkuszy folii ze skrzyń zanim trafią do transportu), ale nie możesz mechanicznie przesiewać lub rozdrabniać zmieszanego gruzu bez odrębnej decyzji.</div>"
         },
         {
-            law: "Ustawa o odpadach (Definicje legalne)",
-            art: "Art. 3 ust. 1 pkt 34 vs pkt 21",
-            title: "ZBIERANIE A PRZETWARZANIE",
-            sub: "KLUCZOWA RÓŻNICA DLA KODU 17 09 04",
-            icon: "🔍",
-            back: "<b>Definicje ustawowe:</b>" +
+            law: "Ustawa o odpadach",
+            art: "Art. 3 ust. 1 pkt 21",
+            title: "DEFINICJA PRZETWARZANIA ODPADÓW",
+            sub: "PROCESY ODZYSKU LUB UNIESZKODLIWIANIA",
+            back: "<b>Przetwarzanie odpadów to:</b>" +
                   "<ul>" +
-                  "<li><b>ZBIERANIE (pkt 34):</b> Czasowe przechowywanie odpadów. <b>ZABRONIONE</b> jest zmienianie składu i sortowanie (zmiana kodu).</li>" +
-                  "<li><b>PRZETWARZANIE (pkt 21):</b> Procesy odzysku lub unieszkodliwiania (np. R12 - sortowanie). <b>TU</b> następuje rozdział na frakcje.</li>" +
+                  "<li>1. Procesy odzysku lub unieszkodliwiania.</li>" +
+                  "<li>2. Obejmuje również przygotowanie poprzedzające odzysk lub unieszkodliwianie.</li>" +
+                  "<li>3. To w ramach operacji przetwarzania (np. proces R12) następuje faktyczny fizyczny rozdział odpadów na frakcje surowcowe.</li>" +
                   "</ul>" +
-                  "<div class='green-box'><b>Wniosek praktyczny:</b> Jeśli firma ma w decyzji tylko 'zbieranie', nie ma prawa sortować Twoich odpadów 17 09 04!</div>"
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Jeżeli chcesz postawić na zapleczu kruszarkę do betonu, aby powtórnie wykorzystać gruz mineralny jako podbudowę pod drogę tymczasową, musisz bezwzględnie uzyskać urzędowe zezwolenie na przetwarzanie odpadów. Wykorzystanie gruzu bez tego dokumentu to poważne naruszenie prawa.</div>"
+        },
+        {
+            law: "Ustawa o odpadach",
+            art: "Art. 66 ust. 4 pkt 1 lit. a",
+            title: "ZWALNIANIE Z EWIDENCJI (KOMUNALKA)",
+            sub: "BRAK OBOWIĄZKU KPO DLA ODPADÓW KOMUNALNYCH",
+            back: "<b>Zasada prawna dotycząca ewidencji w BDO:</b>" +
+                  "<ul>" +
+                  "<li>1. Zgodnie z art. 66 ust. 4 pkt 1 lit. a, obowiązek prowadzenia ewidencji odpadów nie dotyczy wytwórców odpadów komunalnych.</li>" +
+                  "<li>2. Budowa generująca odpady od bytowania pracowników (odpady komunalne) działa jako ich wytwórca i jest zwolniona z wystawiania Kart Przekazania Odpadów (KPO) na te odpady.</li>" +
+                  "<li>3. Wywóz tych odpadów dokumentuje firma odbierająca za pomocą wewnętrznych dokumentów (np. potwierdzenie odbioru), a nie przez system BDO.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Przy kontenerach socjalnych i biurowych rozstaw zwykłe, zamykane stojaki na worki na odpady bytowe (resztki jedzenia, opakowania po napojach). Poinformuj załogę, że nie wolno tam wrzucać odpadów z budowy (np. opakowań po chemii czy ubrań roboczych). Wywóz tych worków rozliczaj fakturą lub kartą odbioru, całkowicie pomijając system BDO.</div>"
+        },
+        {
+            law: "Ustawa o odpadach & Ustawa o utrzymaniu czystości",
+            art: "Art. 3 ust. 1 pkt 7 & Rozporządzenie ws. magazynowania",
+            title: "NAJWAŻNIEJSZE FRAKCJE KOMUNALNE",
+            sub: "SEGREGACJA NA TERENIE INWESTYCJI",
+            back: "<b>Podstawowe frakcje komunalne do wydzielenia na budowie (Art. 3 ust. 1 pkt 7):</b>" +
+                  "<ul>" +
+                  "<li>• <b>Papier i tektura</b> <span class='code-box'>20 01 01</span></li>" +
+                  "<li>• <b>Tworzywa sztuczne i metale</b> <span class='code-box'>20 01 39</span> / <span class='code-box'>20 01 40</span></li>" +
+                  "<li>• <b>Szkło</b> <span class='code-box'>20 01 02</span></li>" +
+                  "<li>• <b>Bioodpady</b> (np. resztki jedzenia) <span class='code-box'>20 01 08</span></li>" +
+                  "<li>• <b>Niesegregowane (zmieszane) odpady komunalne</b> <span class='code-box'>20 03 01</span></li>" +
+                  "</ul>" +
+                  "<div class='arrow-box'><b>Ważne:</b> Odpady te kategorycznie nie obejmują odpadów z samej budowy i rozbiórki (np. gruzu, folii budowlanej)!</div>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Zorganizuj punkt selektywnej zbiórki odpadów socjalnych blisko kantyny lub szatni. Przypilnuj, aby czysta folia stretch używana do paletowania materiałów budowlanych trafiała do big-bagów z odpadami przemysłowymi (kod 17), a nie do komunalnych worków na tworzywa sztuczne.</div>"
+        },
+        {
+            law: "Rozporządzenie Ministra Klimatu ws. magazynowania odpadów",
+            art: "§ 2 ust. 1 pkt 1",
+            title: "ZWALNIANIE Z WYMOGÓW ROZPORZĄDZENIA",
+            sub: "ULGA DLA WYTWÓRCÓW KOMUNALKI",
+            back: "<b>Zwolnienie z rygorystycznych zasad magazynowania:</b>" +
+                  "<ul>" +
+                  "<li>1. Przepisów rozporządzenia w sprawie szczegółowych wymagań dla magazynowania odpadów nie stosuje się do magazynowania odpadów komunalnych przez ich wytwórcę.</li>" +
+                  "<li>2. Oznacza to, że firma budowlana magazynująca odpady komunalne swoich pracowników na terenie budowy nie musi spełniać surowych wymogów (takich jak oznakowanie kodami o wys. 20 mm, podłoża nieprzepuszczalne itp.).</li>" +
+                  "<li>3. Obowiązują ją jednak ogólne zasady dbania o porządek i zabezpieczenia przed rozprzestrzenianiem się odpadów.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Strefa przeznaczona na odpady socjalne pracowników nie wymaga malowania oznaczeń ani betonowej wylewki. Wystarczy dbać o regularne wiązanie worków i zamykanie klap pojemników, tak aby wiatr nie roznosił papierów czy resztek jedzenia na sąsiadujące działki.</div>"
+        },
+        {
+            law: "Ustawa o utrzymaniu czystości i porządku w gminach",
+            art: "Art. 5 / Zasady Ogólne",
+            title: "JAKĄ UMOWĘ MUSI PODPISAĆ FIRMA?",
+            sub: "ORGANIZACJA ODBIORU ODPADÓW BYTOWYCH",
+            back: "<b>Wymogi formalne dla przedsiębiorstwa na budowie:</b>" +
+                  "<ul>" +
+                  "<li>1. Firma budowlana jako nieruchomość niezamieszkała, na której powstają odpady komunalne, musi zapewnić ich legalny odbiór.</li>" +
+                  "<li>2. Dwa scenariusze: a) Zawarcie umowy cywilnoprawnej z podmiotem wpisanym do rejestru działalności regulowanej (RDR) w danej gminie; b) Złożenie deklaracji do gminy.</li>" +
+                  "<li>3. Umowa/deklaracja musi określać liczbę pojemników oraz częstotliwość ich opróżniania zgodnie z regulaminem danej gminy.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Przed rozpoczęciem inwestycji dowiedz się w urzędzie gminy, czy systemem gospodarki komunalnej objęte są nieruchomości niezamieszkałe (firmy). Jeśli tak - składasz deklarację odpadową do urzędu. Jeśli nie - musisz podpisać komercyjną umowę na podstawienie i wywóz pojemników z podmiotem posiadającym wpis do lokalnego rejestru RDR.</div>"
+        },
+        {
+            law: "Rozporządzenie Ministra Infrastruktury ws. warunków technicznych",
+            art: "§ 22 - § 24",
+            title: "WARUNKI TECHNICZNE SITUOWANIA",
+            sub: "MIEJSCA NA POJEMNIKI I KONTENERY",
+            back: "<b>Wymagania dla miejsc gromadzenia odpadów stałych (§ 22 ust. 1):</b>" +
+                  "<ul>" +
+                  "<li>1. Na działkach budowlanych należy przewidzieć miejsca na pojemniki służące do czasowego gromadzenia odpadów stałych.</li>" +
+                  "<li>2. Forma miejsca: Utwardzony plac pod kontenery, zadaszona osłona (wiata) lub specjalne pomieszczenie w budynku.</li>" +
+                  "<li>3. Miejsca te muszą umożliwiać bezproblemowy dojazd i dostęp dla pojazdów podmiotów realizujących wywóz.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Uwzględnij strefę kontenerową już na etapie sporządzania planu BIOZ. Zapewnij utwardzony dojazd (np. z płyt drogowych). Samochód ciężarowy (śmieciarka lub hakowiec) nie może grzęznąć w błocie, a kierowca musi mieć swobodną możliwość manewrowania w celu podniesienia ładunku.</div>"
+        },
+        {
+            law: "Rozporządzenie Ministra Infrastruktury ws. warunków technicznych",
+            art: "§ 23 ust. 1",
+            title: "ODLEGŁOŚCI OD OKIEN I DRZWI",
+            sub: "MINIMALNE DYSTANSE DLA POJEMNIKÓW",
+            back: "<b>Odległość miejsc gromadzenia odpadów od okien i drzwi (§ 23 ust. 1):</b>" +
+                  "<ul>" +
+                  "<li>1. Odległość placów z kontenerami, osłon lub wiat od okien i drzwi do budynków z pomieszczeniami przeznaczonymi na pobyt ludzi musi wynosić co najmniej 10 metrów.</li>" +
+                  "<li>2. Przepis ten ma na celu ochronę przed uciążliwościami zapachowymi oraz sanitarnymi.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Pojemniki na odpady komunalne oraz kontenery budowlane ustawiaj z dala od kontenerów biurowych kierownictwa oraz zaplecza socjalnego. Zachowanie wymaganych przepisami 10 metrów od najbliższego okna chroni budowę przed uwagami Nadzoru Budowlanego i dba o higienę pracy.</div>"
+        },
+        {
+            law: "Rozporządzenie Ministra Infrastruktury ws. warunków technicznych",
+            art: "§ 23 ust. 2",
+            title: "ODLEGŁOŚĆ OD GRANICY DZIAŁKI",
+            sub: "DYSTANS OD SĄSIADA",
+            back: "<b>Odległość miejsc gromadzenia odpadów od granicy działki (§ 23 ust. 2):</b>" +
+                  "<ul>" +
+                  "<li>1. Odległość pojemników i kontenerów od granicy z sąsiednią działką budowlaną musi wynosić co najmniej 3 metry.</li>" +
+                  "<li>2. Wyjątek: Odległość ta nie musi być zachowana, jeśli osłony lub wiaty stykają się z podobnymi urządzeniami na działce sąsiedniej.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Unikaj stawiania głównych kontenerów tuż przy płocie sąsiadującej posesji (zwłaszcza zamieszkałej). Zachowanie 3 metrów odległości zapobiegnie potencjalnym konfliktom sąsiedzkim z tytułu hałasu podczas wrzucania odpadów czy pylenia.</div>"
+        },
+        {
+            law: "Ustawa o odpadach",
+            art: "Art. 5",
+            title: "ZAKAZ ROZCIEŃCZANIA I MIESZANIA",
+            sub: "ZAKAZ ZMIANY KLASYFIKACJI ODPADÓW",
+            back: "<b>Bezwzględne zakazy w klasyfikacji:</b>" +
+                  "<ul>" +
+                  "<li>1. Zakazuje się zmiany klasyfikacji odpadów niebezpiecznych na odpady inne niż niebezpieczne poprzez ich rozcieńczanie lub mieszanie.</li>" +
+                  "<li>2. Niedopuszczalne jest mieszanie ich ze sobą lub z innymi odpadami, substancjami lub materiałami, prowadzące do obniżenia początkowego stężenia substancji niebezpiecznych.</li>" +
+                  "<li>3. Naruszenie tego przepisu skutkuje surową administracyjną karą pieniężną (Art. 194 ust. 1 pkt 1).</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Kategorycznie zabroń pracownikom wylewania resztek cieczy (np. rozpuszczalników, resztek farb czy olejów szalunkowych) do dużego kontenera z gruzem lub ziemią 'żeby wsiąkło'. Zanieczyszczenie czystego gruzu chemią budowlaną spowoduje skażenie całej partii, ogromne koszty utylizacji oraz ryzyko dotkliwej kary finansowej.</div>"
+        },
+        {
+            law: "Ustawa o odpadach",
+            art: "Art. 21 ust. 1 - 2",
+            title: "MIESZANIE ODPADÓW NIEBEZPIECZNYCH",
+            sub: "ZASADA GENERALNA I WYJĄTEK",
+            back: "<b>Regulacje dotyczące mieszania substancji niebezpiecznych:</b>" +
+                  "<ul>" +
+                  "<li>1. Zasada generalna: Zakazuje się mieszania odpadów niebezpiecznych różnych rodzajów oraz mieszania ich z odpadami innymi niż niebezpieczne.</li>" +
+                  "<li>2. Wyjątek: Mieszanie jest dopuszczalne wyłącznie wtedy, gdy służy poprawie bezpieczeństwa procesów przetwarzania odpadów powstałych po zmieszaniu.</li>" +
+                  "<li>3. W wyniku procesów nie może nastąpić wzrost zagrożenia dla życia, zdrowia ludzi lub środowiska.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Wydziel zamknięty, zadaszony 'magazynek chemiczny'. Zużyte puszki po pianach poliuretanowych wrzucaj do jednego, dedykowanego pojemnika, zużyte świetlówki odkładaj osobno, a opakowania po farbach rozpuszczalnikowych segreguj oddzielnie. Nie wolno łączyć wszystkich substancji w jednym wspólnym beczkowaniu.</div>"
+        },
+        {
+            law: "Rozporządzenie Ministra Klimatu ws. magazynowania odpadów",
+            art: "§ 5 ust. 3 - 6 & § 9 ust. 1 - 4",
+            title: "ZASADY OZNAKOWANIA ODPADÓW PRZEMYSŁOWYCH",
+            sub: "WYMIARY I SPECYFIKACJA TECHNICZNA",
+            back: "<b>Parametry techniczne znakowania (dla odpadów innych niż komunalne wytwórcy):</b>" +
+                  "<ul>" +
+                  "<li>1. Kody odpadów: Nanosi się cyframi koloru czarnego o wysokości minimum 20 mm i szerokości linii minimum 3 mm.</li>" +
+                  "<li>2. Etykieta jednostkowa (odpady niebezpieczne > 5L): Wymiary minimum 150 mm szerokości x 210 mm wysokości.</li>" +
+                  "<li>3. Treść etykiety: Napis „ODPADY NIEBEZPIECZNE”, kod, rodzaj, zawartość, adres i dokładna data rozpoczęcia magazynowania.</li>" +
+                  "</ul>" +
+                  "<div class='practice-box'><b>Praktyka na budowie:</b> Przygotuj lub zamów gotowe sztywne tabliczki informacyjne (np. '17 02 01 Drewno') i zamocuj je trwale na kontenerach, aby napisy były widoczne i czytelne z odległości. Na beczkach lub pojemnikach typu DPPL z zużytą chemią naklej białą kartkę formatu A5 (odpowiednik wymaganego wymiaru etykiety) z pełnymi danymi firmy oraz dokładną datą rozpoczęcia napełniania.</div>"
         }
     ];
 
@@ -261,11 +400,10 @@
         
         setTimeout(() => {
             const data = flashcards[currentIndex];
-            document.getElementById('law-ref').innerText = data.law;
-            document.getElementById('art-ref').innerText = data.art;
+            document.getElementById('law-ref').innerText = data.law.toUpperCase();
+            document.getElementById('art-ref').innerText = data.art.toUpperCase();
             document.getElementById('card-title').innerHTML = data.title;
             document.getElementById('card-sub').innerHTML = data.sub;
-            document.getElementById('card-icon').innerText = data.icon;
             document.getElementById('card-back-content').innerHTML = data.back;
             document.getElementById('current-idx').innerText = currentIndex + 1;
             document.getElementById('total-cards').innerText = flashcards.length;
